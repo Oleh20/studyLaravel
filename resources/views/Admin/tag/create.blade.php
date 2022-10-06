@@ -6,11 +6,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-2">{{$category->title}}</h1>
-                        <a class="text-success" href={{route('admin.category.edit', $category->id)}}>
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
+                    <div class="col-sm-6">
+                        <h2 class="m-0">  Adding a tag:</h2>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -28,26 +25,17 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-1">
-                        <a href="{{route('admin.category.create')}}"  class="btn btn-block btn-primary mb-1">Add</a>
-                    </div>
-                    <div class="col-12">
-                        Categories:
-                    </div>
-                </div>
-                <div class="row card-body table-responsive">
-                    <table class="table table-hover text-nowrap col-6">
-                        <tbody>
-                        <tr>
-                            <td>ID</td>
-                            <td>{{$category->title}}</td>
-                        </tr>
-                        <tr>
-                            <td>Title</td>
-                            <td>{{$category->title}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <form  class="col-12" action="{{route('admin.tag.store')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label >Name</label>
+                            <input type="text" class="form-control col-4" name="title" placeholder="Enter name">
+                            @error('title')
+                            <div class="text-danger">Error, filed is necessary</div>
+                            @enderror
+                        </div>
+                        <input  type="submit" class="btn btn-primary col-1" value="Add">
+                    </form>
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->

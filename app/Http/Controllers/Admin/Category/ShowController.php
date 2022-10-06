@@ -11,6 +11,6 @@ class ShowController extends Controller
 {
     public function __invoke(Category $category)
     {
-        return view('Admin.categories.show', compact('category'));
+        return view('Admin.category.show', compact('category'));
     }
 }
