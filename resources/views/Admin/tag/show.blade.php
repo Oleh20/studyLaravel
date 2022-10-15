@@ -39,7 +39,7 @@
                         <a href="{{route('admin.tag.create')}}"  class="btn btn-block btn-primary mb-1">Add</a>
                     </div>
                     <div class="col-12">
-                        Categories:
+                        Tags:
                     </div>
                 </div>
                 <div class="row card-body table-responsive">

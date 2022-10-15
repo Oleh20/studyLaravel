@@ -4,7 +4,15 @@
     <div class="sidebar">
         <ul class="pt-3 nav nav-pills nav-sidebar flex-column">
             <li class="nav-item">
-                <a href="{{route('admin.category.index')}}" class="nav-link">
+                <a href="{{route('admin.post.index')}}" class="nav-link">
+                    <i class="far fa-clipboard"></i>
+                    <p>
+                        POSTS
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.category.index')}}" class="nav-link" style="padding-left: 12px;">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Category
