@@ -25,7 +25,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <form  class="col-12" action="{{route('admin.post.update', $post->id)}}" method="POST">
+                    <form  class="col-12" action="{{route('admin.post.update', $post->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
@@ -63,7 +63,7 @@
                         <div class="form-group w-100">
                             <label for="exampleInputFile">Add image</label>
                             <div class="w-25">
-                                <img src="{{url('storage/' . $post->main_image)}}" alt="main_image" class="w-50">
+                                <img src="{{ Storage::url($post->main_image) }}" alt="main_image" class="w-50">
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">
@@ -91,7 +91,7 @@
                             <label>Tags</label>
                             <select class="select2" name="tag_id[]" multiple="multiple" data-placeholder="Select a Tag" style="width: 100%;">
                                 @foreach($tags as $tag)
-                                    <option {{is_array($post->tags->pluck('id')) && in_array($tag->id, $post->tags->pluck('id')) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
+                                    <option {{is_array($post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
                                 @endforeach
                             </select>
                         </div>

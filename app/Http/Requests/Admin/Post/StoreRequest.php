@@ -33,4 +33,11 @@ class StoreRequest extends FormRequest
             'tag_id.*' => 'nullable|required|exists:tags,id',
         ];
     }
+    public function messages()
+    {
+        return[
+            'title.required' => " it is necessary to field",
+            'title.string' => " it is necessary to field only string",
+        ];
+    }
 }

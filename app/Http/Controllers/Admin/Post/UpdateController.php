@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\UpdateRequest;
-use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
-    public function __invoke(UpdateRequest $request, Category $post)
+    public function __invoke(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
-        $post->update($data);
-       return view('Admin.category.show', compact('post'));
+        $post = $this->service->update($data, $post);
+       return view('Admin.post.show', compact('post'));
     }
 }
