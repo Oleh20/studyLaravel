@@ -41,13 +41,6 @@
                             <div class="text-danger">Error, filed is necessary</div>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label >Password</label>
-                            <input type="text" class="form-control col-4" name="password" placeholder="Enter name">
-                            @error('password')
-                            <div class="text-danger">Error, filed is necessary</div>
-                            @enderror
-                        </div>
                         <div class="form-group w-100">
                             <label>Select Role</label>
                             <select name="role"  class="form-control w-100 col-4">
